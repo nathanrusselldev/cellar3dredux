@@ -12,22 +12,16 @@ const app = express();
 const httpServer = http.createServer(app);
 const db = require('./config/connection');
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 70936b8e59cde155ce8c8b461981c0dd46ae5efe
 const server = new ApolloServer({
   typeDefs,
   resolvers,
   plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
 });
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 70936b8e59cde155ce8c8b461981c0dd46ae5efe
 const startApolloServer = async (typeDefs, resolvers) => {
   await server.start();
   app.use(
