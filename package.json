@@ -1,0 +1,20 @@
+{
+  "name": "cellar3dredux",
+  "version": "1.0.0",
+  "description": "This is a 'clean shot' version of cellar3d which contains components of the microservices I developed to plug into the final version of cellar3d for go live. \r There will be additional functionality added during the dev process, which includes collating the microservices.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nathanrusselldev/cellar3dredux.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nathanrusselldev/cellar3dredux/issues"
+  },
+  "homepage": "https://github.com/nathanrusselldev/cellar3dredux#readme"
+}
