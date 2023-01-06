@@ -1,4 +1,26 @@
 const User = require('./User');
+const Cellar = require('./Cellar')
+const Position = require('./Position')
+const Bottle = require('./Bottle')
+
+User.hasOne(Cellar, {
+    foreignKey: 'cellar_id'
+})
+Cellar.belongsTo(User, {
+    foreignKey: 'user_id'
+})
+Cellar.hasMany(Position, {
+    foreignKey: 'cellar_id'
+})
+Bottle.belongsTo(Position, {
+    foreignKey: 'position_id'
+})
+Bottle.hasOne(Position, {
+    foreignKey: 'binNumber'
+})
+Position.hasOne(Bottle, {
+    foreignKey: 'bottle_id'
+})
 
 
-module.exports = { User }
+module.exports = { User, Cellar, Position, Bottle }
