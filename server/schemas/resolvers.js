@@ -1,11 +1,12 @@
-const { User } = require('../models');
+const { User, Cellar, Position, Bottle } = require('../models');
 
 
 const resolvers = {
     Query: {
-      users: async () => {
-        return User.findAll()
-      },
+      users: async () => User.findAll(),
+      cellars: async () => Cellar.findAll,
+      bottles: async () => Bottle.findAll,
+      positions: async () => Position.findAll,
       hello: () => 'world',
     },
   };
