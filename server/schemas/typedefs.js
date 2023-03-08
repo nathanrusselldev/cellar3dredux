@@ -28,12 +28,20 @@ const typeDefs = `#graphql
     body: String
     notes: String
   }
+  type Auth {
+    token: ID!
+    user: User
+  }
   type Query {
     users: [User]!
+    user(username: String!): User
     cellars: [Cellar]!
     bottles: [Bottle]!
     positions: [Position]!
     hello: String
+  }
+  type Mutation {
+    createUser(username: String!, email: String!, first_name: String!, last_name: String!, password: String!): Auth!
   }
 `;
 
