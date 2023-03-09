@@ -6,8 +6,8 @@ const resolvers = {
       users: async () => User.findAll(),
       user: async (parent, { username }) => User.findOne({ username }),
       cellars: async () => Cellar.findAll(),
-      cellar: async (parent, {cellar_id }) => Cellar.findOne(
-        { cellar_id,
+      cellar: async (parent, { cellar_id }) => Cellar.findOne(
+        { where: cellar_id,
           include: [Position]
         }),
       bottles: async () => Bottle.findAll(),
