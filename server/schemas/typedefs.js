@@ -13,11 +13,13 @@ const typeDefs = `#graphql
     name: String
     cellarHeight: Int
     cellarWidth: Int
+    positions: [Position]
   }
   type Position {
     id: ID
     binNumber: Int
     hasBottle: Boolean
+    cellar: Cellar
   }
   type Bottle {
     id: ID
@@ -36,12 +38,14 @@ const typeDefs = `#graphql
     users: [User]!
     user(username: String!): User
     cellars: [Cellar]!
+    cellar(cellar_id: Int): Cellar
     bottles: [Bottle]!
     positions: [Position]!
     hello: String
   }
   type Mutation {
     createUser(username: String!, email: String!, first_name: String!, last_name: String!, password: String!): Auth!
+    createCellar(name: String!, cellarHeight: Int!, cellarWidth: Int!): Cellar
   }
 `;
 

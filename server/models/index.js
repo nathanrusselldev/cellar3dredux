@@ -4,7 +4,7 @@ const Position = require('./Position')
 const Bottle = require('./Bottle')
 
 User.hasOne(Cellar, {
-    foreignKey: 'cellar_id'
+    foreignKey: 'user_id'
 })
 Cellar.belongsTo(User, {
     foreignKey: 'user_id'
@@ -12,11 +12,11 @@ Cellar.belongsTo(User, {
 Cellar.hasMany(Position, {
     foreignKey: 'cellar_id'
 })
-Bottle.belongsTo(Position, {
+Bottle.hasOne(Position, {
     foreignKey: 'position_id'
 })
-Bottle.hasOne(Position, {
-    foreignKey: 'binNumber'
+Bottle.belongsTo(Position,{
+    foreignKey: 'position_id'
 })
 Position.hasOne(Bottle, {
     foreignKey: 'bottle_id'
