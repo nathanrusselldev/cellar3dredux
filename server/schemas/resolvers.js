@@ -39,6 +39,20 @@ const resolvers = {
         console.log(newCellar)
         return newCellar
       },
+      createBottle: async(parent, args) => {
+        console.log(args)
+        const bottle = await Bottle.create({
+          name: args.name,
+          type: args.type,
+          vintage: args.vintage,
+          locale: args.locale,
+          body: args.body,
+          notes: args.notes,
+          position_id: args.position
+        })
+        return bottle
+      }
+      
     }
   };
 
