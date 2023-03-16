@@ -29,6 +29,7 @@ const typeDefs = `#graphql
     locale: String
     body: String
     notes: String
+    drank: Boolean
     position: Position
   }
   type Auth {

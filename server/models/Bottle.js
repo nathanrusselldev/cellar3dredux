@@ -29,6 +29,10 @@ Bottle.init(
            type: DataTypes.STRING,
            allowNull: true,
         },
+        drank: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+        }
     },
     {
         sequelize,

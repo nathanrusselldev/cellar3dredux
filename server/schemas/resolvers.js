@@ -48,11 +48,16 @@ const resolvers = {
           locale: args.locale,
           body: args.body,
           notes: args.notes,
-          position_id: args.position
+          position_id: args.position,
+          drank: false,
         })
-        return bottle
+        console.log(bottle)
+        const positionData = await Position.update(
+          { bottle_id: bottle.id },
+          { where: { id: bottle.position_id }
+          })
+        return {bottle, positionData}
       }
-      
     }
   };
 
