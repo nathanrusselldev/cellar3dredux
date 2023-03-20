@@ -1,4 +1,5 @@
 const { User, Cellar, Position, Bottle } = require('../models');
+const { signToken } = require('../utils/auth');
 
 
 const resolvers = {
@@ -57,7 +58,24 @@ const resolvers = {
           { where: { id: bottle.position_id }
           })
         return {bottle, positionData}
-      }
+      },
+      login: async (parent, { username, password }) => {
+        const user = await User.findOne({ username });
+  
+        if (!user) {
+          throw new AuthenticationError('No user found with this email address');
+        }
+  
+        const correctPw = await user.isCorrectPassword(password);
+  
+        if (!correctPw) {
+          throw new AuthenticationError('Incorrect credentials');
+        }
+  
+        const token = signToken(user);
+        console.log(token)
+        return { token, user };
+      },
     }
   };
 

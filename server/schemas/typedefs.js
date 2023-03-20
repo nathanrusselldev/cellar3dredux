@@ -50,6 +50,7 @@ const typeDefs = `#graphql
     createUser(username: String!, email: String!, first_name: String!, last_name: String!, password: String!): Auth!
     createCellar(name: String!, cellarHeight: Int!, cellarWidth: Int!): Cellar
     createBottle(name: String, type: String, vintage: String, locale: String, body: String, notes: String, position: Int): Bottle
+    login(username: String!, password: String!): Auth
   }
 `;
 
