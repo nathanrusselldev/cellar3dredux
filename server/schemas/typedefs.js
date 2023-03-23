@@ -29,6 +29,8 @@ const typeDefs = `#graphql
     locale: String
     body: String
     notes: String
+    drank: Boolean
+    position: Position
   }
   type Auth {
     token: ID!
@@ -41,11 +43,14 @@ const typeDefs = `#graphql
     cellar(cellar_id: Int): Cellar
     bottles: [Bottle]!
     positions: [Position]!
+    position(id: Int!): Position
     hello: String
   }
   type Mutation {
     createUser(username: String!, email: String!, first_name: String!, last_name: String!, password: String!): Auth!
     createCellar(name: String!, cellarHeight: Int!, cellarWidth: Int!): Cellar
+    createBottle(name: String, type: String, vintage: String, locale: String, body: String, notes: String, position: Int): Bottle
+    login(username: String!, password: String!): Auth
   }
 `;
 

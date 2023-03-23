@@ -13,14 +13,10 @@ Cellar.hasMany(Position, {
     foreignKey: 'cellar_id'
 })
 Bottle.hasOne(Position, {
-    foreignKey: 'position_id'
-})
-Bottle.belongsTo(Position,{
-    foreignKey: 'position_id'
-})
-Position.hasOne(Bottle, {
     foreignKey: 'bottle_id'
 })
-
+Bottle.belongsTo(Position, {
+    foreignKey: 'position_id'
+})
 
 module.exports = { User, Cellar, Position, Bottle }
