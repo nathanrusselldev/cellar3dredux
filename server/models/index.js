@@ -12,9 +12,9 @@ Cellar.belongsTo(User, {
 Cellar.hasMany(Position, {
     foreignKey: 'cellar_id'
 })
-Cellar.hasMany(Bottle, {
-    foreignKey: 'cellar_id'
-})
+Cellar.hasMany(Bottle)
+Bottle.belongsTo(Cellar)
+
 Bottle.hasOne(Position, {
     foreignKey: 'bottle_id'
 })

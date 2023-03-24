@@ -19,7 +19,6 @@ const typeDefs = `#graphql
     id: ID
     binNumber: Int
     hasBottle: Boolean
-    cellar: Cellar
     bottle: Bottle
   }
   type Bottle {
