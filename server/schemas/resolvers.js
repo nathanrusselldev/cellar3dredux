@@ -7,12 +7,10 @@ const resolvers = {
       users: async () => User.findAll(),
       user: async (parent, { username }) => User.findOne({ username }),
       cellars: async () => Cellar.findAll(),
-      cellar: async (parent, { cellar_id }) => Cellar.findOne(
-        { where: cellar_id,
-          include: [Position]
-        }),
+      cellar: async (parent, { cellar_id }) => Cellar.findOne({ where: cellar_id, include: [{ model: Position, include: Bottle }]}),
       bottles: async () => Bottle.findAll(),
-      positions: async () => Position.findAll(),
+      positions: async () => Position.findAll({include: Bottle}),
+      position: async (parent, {position_id}) => Position.findOne({where: position_id, include: Bottle}),
       hello: () => 'world',
     },
     Mutation: {
@@ -58,13 +56,14 @@ const resolvers = {
           locale: args.locale,
           body: args.body,
           notes: args.notes,
-          position_id: args.position,
           drank: false,
+          position_id: args.position,
+          cellar_id: args.cellar
         })
         console.log(bottle)
         const positionData = await Position.update(
           { bottle_id: bottle.id },
-          { where: { id: bottle.position_id }
+          { where: { id: args.position }
           })
         return {bottle, positionData}
       },
