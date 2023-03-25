@@ -62,7 +62,7 @@ const resolvers = {
         })
         console.log(bottle)
         const positionData = await Position.update(
-          { bottle_id: bottle.id },
+          { bottle_id: bottle.id, hasBottle: true },
           { where: { id: args.position }
           })
         return {bottle, positionData}
